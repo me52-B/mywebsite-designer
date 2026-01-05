@@ -1,0 +1,852 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LOVETTE YOUNG FASHION-HUB | African Fashion Designs</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        :root {
+            --primary-orange: #ff7b00;
+            --dark-orange: #e56b00;
+            --light-orange: #ff983d;
+            --cream: #fff5e6;
+            --dark-brown: #3d2c1c;
+            --light-brown: #8b7355;
+        }
+        
+        body {
+            background: linear-gradient(135deg, var(--light-orange) 0%, var(--primary-orange) 50%, var(--dark-orange) 100%);
+            color: var(--dark-brown);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            min-height: 100vh;
+        }
+        
+        .navbar-brand {
+            font-weight: 700;
+            font-size: 1.8rem;
+            color: var(--dark-brown) !important;
+        }
+        
+        .nav-link {
+            font-weight: 500;
+            color: var(--dark-brown) !important;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-link:hover {
+            color: var(--primary-orange) !important;
+            transform: translateY(-2px);
+        }
+        
+        .fashion-card {
+            background-color: var(--cream);
+            border-radius: 15px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            border: none;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            height: 100%;
+        }
+        
+        .fashion-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+        }
+        
+        .card-img-top {
+            height: 250px;
+            object-fit: cover;
+        }
+        
+        .btn-fashion {
+            background-color: var(--primary-orange);
+            border: none;
+            color: white;
+            font-weight: 600;
+            padding: 10px 25px;
+            border-radius: 30px;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-fashion:hover {
+            background-color: var(--dark-orange);
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        
+        .section-title {
+            color: var(--dark-brown);
+            position: relative;
+            padding-bottom: 15px;
+            margin-bottom: 30px;
+            font-weight: 700;
+        }
+        
+        .section-title:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 80px;
+            height: 4px;
+            background-color: var(--primary-orange);
+            border-radius: 2px;
+        }
+        
+        .hero-section {
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 20px;
+            padding: 40px;
+            margin-top: 30px;
+            margin-bottom: 50px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        
+        .login-container, .register-container {
+            background-color: var(--cream);
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+            max-width: 500px;
+            margin: 50px auto;
+        }
+        
+        .form-control {
+            border-radius: 10px;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            transition: all 0.3s;
+        }
+        
+        .form-control:focus {
+            border-color: var(--primary-orange);
+            box-shadow: 0 0 0 0.25rem rgba(255, 123, 0, 0.25);
+        }
+        
+        footer {
+            background-color: var(--dark-brown);
+            color: var(--cream);
+            padding: 30px 0;
+            margin-top: 50px;
+        }
+        
+        .african-pattern {
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100" height="100" fill="%23ff7b00"/><path d="M0,0 L100,100 M100,0 L0,100" stroke="%23e56b00" stroke-width="2"/><circle cx="50" cy="50" r="20" fill="%23ff983d" opacity="0.7"/></svg>');
+            opacity: 0.1;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+        
+        .main-container {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .active-page {
+            font-weight: 700;
+            color: var(--primary-orange) !important;
+        }
+        
+        .service-icon {
+            font-size: 3rem;
+            color: var(--primary-orange);
+            margin-bottom: 20px;
+        }
+        
+        .about-img {
+            border-radius: 15px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        
+        .gender-tabs {
+            margin-bottom: 30px;
+        }
+        
+        .gender-tabs .nav-link {
+            background-color: transparent;
+            color: var(--dark-brown);
+            border: 2px solid var(--dark-brown);
+            border-radius: 30px;
+            margin-right: 10px;
+            padding: 8px 25px;
+        }
+        
+        .gender-tabs .nav-link.active {
+            background-color: var(--primary-orange);
+            color: white;
+            border-color: var(--primary-orange);
+        }
+        
+        .tab-content {
+            padding-top: 20px;
+        }
+        
+        .dress-category {
+            font-weight: 600;
+            color: var(--primary-orange);
+            margin-top: 10px;
+            display: inline-block;
+            background-color: rgba(255, 123, 0, 0.1);
+            padding: 5px 15px;
+            border-radius: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="african-pattern"></div>
+    
+    <nav class="navbar navbar-expand-lg navbar-light sticky-top" style="background-color: var(--cream);">
+        <div class="container">
+            <a class="navbar-brand" href="#" style="color: red;">
+                <i class="fas fa-vest-patches" style="color: blue;"></i><h1 style="color: red;">DESIGNER YOUNG FASHION HOUSE</h1>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#home" id="home-link">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about" id="about-link">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#services" id="services-link">Services</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#products" id="products-link">Products</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#login" id="login-link">Login</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#register" id="register-link">Register</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container main-container">
+        
+        <section id="home" class="content-section">
+            <div class="hero-section">
+                <div class="row align-items-center">
+                    <div class="col-lg-6">
+                        <h1 class="display-4 fw-bold mb-4" style="color: orange;">Liberian Fashion Designer</h1>
+                        <p class="lead mb-4" style="color: blue;">Discover the vibrant Liberian latest fashion at DESIGNER YOUNG FASHION HOUSE. We bring you authentic, contemporary Liberian designs for both men and women that celebrate culture and style.</p>
+                        <a href="#products" class="btn btn-fashion btn-lg">Explore Collection</a>
+                    </div>
+                    <div class="col-lg-6">
+                        <img src="lovette photo.jpg" 
+                             class="img-fluid rounded about-img" alt="African Fashion Models">
+                    </div>
+                </div>
+            </div>
+            
+            <div class="row mb-5">
+                <div class="col-12">
+                    <h2 class="section-title">Featured Designs</h2>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card fashion-card">
+                        <img src="lovette photo.jpg" class="card-img-top" alt="African Women Dress">
+                        <div class="card-body">
+                            <h5 class="card-title" style="color: blue;">Liberian Dress Style</h5>
+                            <p class="card-text">Elegant full-length gown with vibrant African prints, perfect for special occasions.</p>
+                            <span class="dress-category">Women's Wear</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card fashion-card">
+                        <img src="lovettemom.jpg" class="card-img-top" alt="African Men Attire">
+                        <div class="card-body">
+                            <h5 class="card-title" style="color: blue;">Liberian Traditional Wear</h5>
+                            <p class="card-text">Regal flowing robe for men, crafted with intricate embroidery and premium fabric.</p>
+                            <span class="dress-category">Ladies Wear</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card fashion-card">
+                        <img src="lovettefriend.jpg" class="card-img-top" alt="African Print Dress">
+                        <div class="card-body">
+                            <h5 class="card-title" style="color: blue;">Liberia Wrapper Print Two-piece</h5>
+                            <p class="card-text">Modern two-piece outfit featuring traditional Wrapper patterns with a contemporary twist.</p>
+                            <span class="dress-category">Women's Wear</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="about" class="content-section" style="display: none;">
+            <div class="hero-section">
+                <h2 class="section-title" style="color: blue;">DESIGNER YOUNG FASHION HOUSE</h2>
+                <div class="row">
+                    <div class="col-lg-6 mb-4">
+                        <img src="lovettenow.jpg" 
+                             class="img-fluid rounded about-img" alt="About African Fashion">
+                    </div>
+                    <div class="col-lg-6">
+                        <h3 class="mb-4">Celebrating Liberian Heritage Through Fashion</h3>
+                        <p><P1 style="color: red;">DESIGNER YOUNG FASHION HOUSE</P1> was founded in 2025 with a vision to bring Liberian fashion to the global stage. We combine traditional Liberian & African textile artistry with contemporary design to create unique, culturally-rich fashion pieces.</p>
+                        <p>Our designs are inspired by the diverse cultures across the African continent, from the vibrant Wrapper prints of West Africa to the intricate beadwork of East Africa and the earthy tones of Southern African textiles.</p>
+                        <p>We work directly with All Liberian Design Collaboration to ensure authentic craftsmanship while providing fair wages and supporting local communities. Each piece in our collection tells a story of heritage, creativity, and modern elegance.</p>
+                        <p>Our mission is to empower individuals to express their identity through fashion that honors tradition while embracing contemporary style.</p>
+                    </div>
+                </div>
+                
+                <div class="row mt-5">
+                    <div class="col-md-4 text-center mb-4">
+                        <div class="service-icon">
+                            <i class="fas fa-hands-helping"></i>
+                        </div>
+                        <h4>All Liberian Design Collaboration</h4>
+                        <p>We partner directly with All Liberian Fashion Design to preserve traditional crafting techniques.</p>
+                    </div>
+                    <div class="col-md-4 text-center mb-4">
+                        <div class="service-icon">
+                            <i class="fas fa-leaf"></i>
+                        </div>
+                        <h4>Sustainable Materials</h4>
+                        <p>Our fabrics are ethically sourced and we prioritize eco-friendly production methods.</p>
+                    </div>
+                    <div class="col-md-4 text-center mb-4">
+                        <div class="service-icon">
+                            <i class="fas fa-award"></i>
+                        </div>
+                        <h4>Award-Winning Designs</h4>
+                        <p>Our collections have received national recognition for innovation in Liberian fashion.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="services" class="content-section" style="display: none;">
+            <div class="hero-section">
+                <h2 class="section-title">Our Services</h2>
+                <p class="lead mb-5" style="color: rgb(26, 7, 234);">At DESIGNER YOUNG FASHION HOUSE, we offer a comprehensive range of fashion services tailored to your needs.</p>
+                
+                <div class="row">
+                    <div class="col-md-6 mb-4">
+                        <div class="card fashion-card h-100">
+                            <div class="card-body">
+                                <h4 class="card-title" style="color: #e56b00;"><i class="fas fa-cut me-2" style="color: blue;"></i>Custom Tailoring</h4>
+                                <p class="card-text" style="color: #ff7b00;">Get personalized Liberian outfits tailored to your exact measurements and style preferences. Our master tailors will work with you to create a one-of-a-kind piece that fits perfectly.</p>
+                                <ul>
+                                    <li style="color: rgb(27, 16, 226);">Best Traditional Wrapper outfits</li>
+                                    <li style="color: rgb(27, 16, 226);">Wedding and ceremonial attire</li>
+                                    <li style="color: rgb(27, 16, 226);">Contemporary-African fusion wear</li>
+                                    <li style="color: rgb(27, 16, 226);">Alterations and adjustments</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-6 mb-4">
+                        <div class="card fashion-card h-100">
+                            <div class="card-body">
+                                <h4 class="card-title" style="color: red;"><i class="fas fa-palette me-2" style="color: orangered;"></i>Design Consultation</h4>
+                                <p class="card-text" style="color: #e56b00;">Our fashion consultants will help you select the perfect African-inspired outfit for any occasion, whether it's a wedding, corporate event, or casual gathering.</p>
+                                <ul>
+                                    <li style="color: rgb(27, 16, 226);">Personal styling sessions</li>
+                                    <li style="color: rgb(27, 16, 226);">Event-appropriate outfit selection</li>
+                                    <li style="color: rgb(27, 16, 226);">Color and fabric consultation</li>
+                                    <li style="color: rgb(27, 16, 226);">Cultural appropriateness guidance</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-6 mb-4">
+                        <div class="card fashion-card h-100">
+                            <div class="card-body">
+                                <h4 class="card-title" style="color: blue;"><i class="fas fa-tshirt me-2" style="color: red"></i>Ready-to-Wear Collection</h4>
+                                <p class="card-text" style="color: #e56b00;">Explore our extensive collection of ready-to-wear Liberian fashion for men and women. Each piece is carefully crafted with authentic fabrics and contemporary designs.</p>
+                                <ul>
+                                    <li style="color: rgb(27, 16, 226);">Traditional and modern Liberian styles</li>
+                                    <li style="color: rgb(27, 16, 226);">Sizes for all body types</li>
+                                    <li style="color: rgb(27, 16, 226);">Seasonal collections</li>
+                                    <li style="color: rgb(27, 16, 226);">Accessories and complements</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-6 mb-4">
+                        <div class="card fashion-card h-100">
+                            <div class="card-body">
+                                <h4 class="card-title" style="color: blue;"><i class="fas fa-truck me-2" style="color: #e56b00;"></i>Counties Shipping</h4>
+                                <p class="card-text" style="color: #e56b00;">We deliver our authentic Liberian fashion with in all of the 16 counties. Enjoy secure packaging and reliable delivery to your doorstep, no matter where you are located.</p>
+                                <ul>
+                                    <li style="color: rgb(31, 9, 237);">National shipping</li>
+                                    <li style="color: rgb(31, 9, 237);">Express delivery </li>
+                                    <li style="color: rgb(31, 9, 237);">Counties Delivery</li>
+                                    <li style="color: rgb(31, 9, 237);">Easy returns and exchanges</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        
+        <section id="products" class="content-section" style="display: none;">
+            <div class="hero-section">
+                <h2 class="section-title">Our Products</h2>
+                <p class="lead mb-4">Explore our diverse collection of Liberian-inspired fashion for men and women.</p>
+                
+            
+                <ul class="nav nav-pills gender-tabs" id="genderTab" role="tablist">
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link active" id="women-tab" data-bs-toggle="pill" data-bs-target="#women">Women's Collection</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="men-tab" data-bs-toggle="pill" data-bs-target="#men">Men's Collection</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="accessories-tab" data-bs-toggle="pill" data-bs-target="#accessories">Accessories</button>
+                    </li>
+                </ul>
+                
+                <div class="tab-content" id="genderTabContent">
+                    
+                    <div class="tab-pane fade show active" id="women" role="tabpanel">
+                        <div class="row">
+                            <div class="col-md-4 mb-4">
+                                <div class="card fashion-card">
+                                    <img src="pekin.jpg" class="card-img-top" alt="African Dress">
+                                    <div class="card-body">
+                                        <h5 class="card-title">African Wrapper and Iro</h5>
+                                        <p class="card-text">Traditional Liberian two-piece outfit with matching head tie (gele).</p>
+                                        <p class="fw-bold">$33.99</p>
+                                        <span class="dress-category">Traditional</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4 mb-4">
+                                <div class="card fashion-card">
+                                    <img src="lovette photo - Copy (2).jpg" class="card-img-top" alt="African Dress">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Liberian wrapper Dress</h5>
+                                        <p class="card-text">Elegant knee-length dress with traditional Liberian cloth patterns.</p>
+                                        <p class="fw-bold">$20.50</p>
+                                        <span class="dress-category">Modern Traditional</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4 mb-4">
+                                <div class="card fashion-card">
+                                    <img src="lovettenow.jpg" class="card-img-top" alt="African Dress">
+                                    <div class="card-body">
+                                        <h5 class="card-title">LIBERIAN WRAPPER JUMPSUIT</h5>
+                                        <p class="card-text">Contemporary jumpsuit featuring vibrant Liberian Wrapper jumpsuit.</p>
+                                        <p class="fw-bold">$92.00</p>
+                                        <span class="dress-category">Modern</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                
+                    <div class="tab-pane fade" id="men" role="tabpanel">
+                        <div class="row">
+                            <div class="col-md-4 mb-4">
+                                <div class="card fashion-card">
+                                    <img src="https://images.unsplash.com/photo-1621075160523-b936ad96132a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" class="card-img-top" alt="African Men Attire">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Embossed Agbada Set</h5>
+                                        <p class="card-text">Three-piece traditional Agbada with intricate embroidery and matching cap.</p>
+                                        <p class="fw-bold">$15.99</p>
+                                        <span class="dress-category">Traditional</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4 mb-4">
+                                <div class="card fashion-card">
+                                    <img src="https://images.unsplash.com/photo-1594938374182-797d1c9b7e6c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" class="card-img-top" alt="African Men Attire">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Liberian Print Senator Wear</h5>
+                                        <p class="card-text">Modern senator outfit with bold Ankara prints and tailored fit.</p>
+                                        <p class="fw-bold">$110.00</p>
+                                        <span class="dress-category">Modern Traditional</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4 mb-4">
+                                <div class="card fashion-card">
+                                    <img src="https://images.unsplash.com/photo-1521341057461-6eb5f40b07ab?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" class="card-img-top" alt="African Men Attire">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Dashiki Shirt & Trousers</h5>
+                                        <p class="card-text">Casual yet stylish Dashiki shirt paired with complementary trousers.</p>
+                                        <p class="fw-bold">$85.50</p>
+                                        <span class="dress-category">Casual</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    
+                    <div class="tab-pane fade" id="accessories" role="tabpanel">
+                        <div class="row">
+                            <div class="col-md-4 mb-4">
+                                <div class="card fashion-card">
+                                    <img src="african beans.jpg" class="card-img-top" alt="African Accessories">
+                                    <div class="card-body">
+                                        <h5 class="card-title">AFRICAN BEANS</h5>
+                                        <p class="card-text">Handcrafted Maasai-inspired beaded necklace and bracelet set.</p>
+                                        <p class="fw-bold">$20.99</p>
+                                        <span class="dress-category">Traditional jewelry</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4 mb-4">
+                                <div class="card fashion-card">
+                                    <img src="african jewelry.jpg" class="card-img-top" alt="African Accessories">
+                                    <div class="card-body">
+                                        <h5 class="card-title">AFRICAN JEWELRY</h5>
+                                        <p class="card-text">African jewelry (Gele) with styling guide.</p>
+                                        <p class="fw-bold">$32.50</p>
+                                        <span class="dress-category">Neckwear</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4 mb-4">
+                                <div class="card fashion-card">
+                                    <img src="https://images.unsplash.com/photo-1544441893-675973e31985?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80" class="card-img-top" alt="African Accessories">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Leather Safari Bag</h5>
+                                        <p class="card-text">Handcrafted leather bag with African motif detailing and adjustable strap.</p>
+                                        <p class="fw-bold">$78.00</p>
+                                        <span class="dress-category">Bags</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Login Section -->
+        <section id="login" class="content-section" style="display: none;">
+            <div class="login-container">
+                <h2 class="section-title text-center" style="color: orangered;"> DESIGNER YOUNG FASHION HOUSE LOGIN</h2>
+                <p class="text-center mb-4">Access Designer fashion house account to manage orders, save favorites, and more.</p>
+                
+                <form id="loginForm">
+                    <div class="mb-3">
+                        <label for="loginEmail" class="form-label">Email address</label>
+                        <input type="email" class="form-control" id="loginEmail" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="loginPassword" class="form-label">Password</label>
+                        <input type="password" class="form-control" id="loginPassword" required>
+                    </div>
+                    <div class="mb-3 form-check">
+                        <input type="checkbox" class="form-check-input" id="rememberMe">
+                        <label class="form-check-label" for="rememberMe">Remember me</label>
+                    </div>
+                    <button type="submit" class="btn btn-fashion w-100">Login</button>
+                </form>
+                
+                <div class="text-center mt-4">
+                    <p>Don't have an account? <a href="#register" class="text-decoration-none fw-bold" id="goToRegister">Register here</a></p>
+                    <p><a href="#" class="text-decoration-none">Forgot your password?</a></p>
+                </div>
+                
+                <div class="mt-4 text-center">
+                    <p class="mb-2">Or login with:</p>
+                    <button class="btn btn-outline-dark me-2"><i class="fab fa-google"></i> Google</button>
+                    <button class="btn btn-outline-primary"><i class="fab fa-facebook"></i> Facebook</button>
+                </div>
+            </div>
+        </section>
+        
+        
+        <section id="register" class="content-section" style="display: none;">
+            <div class="register-container">
+                <h2 class="section-title text-center">Create an Account</h2>
+                <p class="text-center mb-4">Join DESIGNER YOUNG FASHION HOUSE to explore exclusive designs and special offers.</p>
+                
+                <form id="registerForm">
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label for="firstName" class="form-label">First Name</label>
+                            <input type="text" class="form-control" id="firstName" required>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label for="lastName" class="form-label">Last Name</label>
+                            <input type="text" class="form-control" id="lastName" required>
+                        </div>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label for="registerEmail" class="form-label">Email address</label>
+                        <input type="email" class="form-control" id="registerEmail" required>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label for="registerPassword" class="form-label">Password</label>
+                        <input type="password" class="form-control" id="registerPassword" required>
+                        <div class="form-text">Password must be at least 8 characters with a mix of letters and numbers.</div>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label for="confirmPassword" class="form-label">Confirm Password</label>
+                        <input type="password" class="form-control" id="confirmPassword" required>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label for="phone" class="form-label">Phone Number</label>
+                        <input type="tel" class="form-control" id="phone">
+                    </div>
+                    
+                    <div class="mb-3 form-check">
+                        <input type="checkbox" class="form-check-input" id="terms" required>
+                        <label class="form-check-label" for="terms">I agree to the <a href="#" class="text-decoration-none">Terms and Conditions</a></label>
+                    </div>
+                    
+                    <div class="mb-3 form-check">
+                        <input type="checkbox" class="form-check-input" id="newsletter" checked>
+                        <label class="form-check-label" for="newsletter">Subscribe to our fashion newsletter</label>
+                    </div>
+                    
+                    <button type="submit" class="btn btn-fashion w-100">Create Account</button>
+                </form>
+                
+                <div class="text-center mt-4">
+                    <p>Already have an account? <a href="#login" class="text-decoration-none fw-bold" id="goToLogin">Login here</a></p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <h4 class="mb-4" style="color: blue;">LDESIGNER YOUNG FASHION HOUSE</h4>
+                    <p>Celebrating Liberian heritage through contemporary fashion design. Bringing authentic Liberian style to the world.</p>
+                    <div class="social-icons mt-3">
+                        <a href="https://www.facebook.com/profile.php?id=61555158724773" class="text-light me-3"><i class="fab fa-facebook fa-lg"></i></a>
+                        <a href="#" class="text-light me-3"><i class="fab fa-instagram fa-lg"></i></a>
+                        <a href="#" class="text-light me-3"><i class="fab fa-twitter fa-lg"></i></a>
+                        <a href="#" class="text-light"><i class="fab fa-pinterest fa-lg"></i></a>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <h5 class="mb-4">Quick Links</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="#home" class="text-light text-decoration-none" style="color: greenyellow;">Home</a></li>
+                        <li class="mb-2"><a href="#about" class="text-light text-decoration-none">About Us</a></li>
+                        <li class="mb-2"><a href="#services" class="text-light text-decoration-none">Services</a></li>
+                        <li class="mb-2"><a href="#products" class="text-light text-decoration-none">Products</a></li>
+                        <li class="mb-2"><a href="#login" class="text-light text-decoration-none">Login</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <h5 class="mb-4">Contact Us</h5>
+                    <p style="color: orange;"><i class="fas fa-map-marker-alt me-2" style="color: blue;"></i> Jacob Town Madina Island, Paynesville, Liberia</p>
+                    <p style="color: orange;"><i class="fas fa-phone me-2" style="color: blue;"></i>+231880166570/+231778378390</p>
+                    <p style="color: orange;"><i class="fas fa-envelope me-2" style="color: blue;"></i>lovettefashionhub@gmail.com</p>
+                    <p><i class="fas fa-clock me-2" style="color: blue;"></i> Mon-Sat: 9am-6pm</p>
+                </div>
+            </div>
+            <hr class="bg-light">
+            <div class="text-center pt-3">
+                <p>&copy; 2023 DESIGNER YOUNG FASHION HOUSE. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    
+    
+    <script>
+        
+        const usersDatabase = [
+            { email: "demo@lovette.com", password: "demo123", firstName: "Demo", lastName: "User" }
+        ];
+        
+        document.addEventListener('DOMContentLoaded', function() {
+        
+            showSection('home');
+            setActiveNavLink('home-link');
+            
+            document.getElementById('home-link').addEventListener('click', function(e) {
+                e.preventDefault();
+                showSection('home');
+                setActiveNavLink('home-link');
+            });
+            
+            document.getElementById('about-link').addEventListener('click', function(e) {
+                e.preventDefault();
+                showSection('about');
+                setActiveNavLink('about-link');
+            });
+            
+            document.getElementById('services-link').addEventListener('click', function(e) {
+                e.preventDefault();
+                showSection('services');
+                setActiveNavLink('services-link');
+            });
+            
+            document.getElementById('products-link').addEventListener('click', function(e) {
+                e.preventDefault();
+                showSection('products');
+                setActiveNavLink('products-link');
+            });
+            
+            document.getElementById('login-link').addEventListener('click', function(e) {
+                e.preventDefault();
+                showSection('login');
+                setActiveNavLink('login-link');
+            });
+            
+            document.getElementById('register-link').addEventListener('click', function(e) {
+                e.preventDefault();
+                showSection('register');
+                setActiveNavLink('register-link');
+            });
+            
+            
+            document.getElementById('goToRegister').addEventListener('click', function(e) {
+                e.preventDefault();
+                showSection('register');
+                setActiveNavLink('register-link');
+            });
+            
+            document.getElementById('goToLogin').addEventListener('click', function(e) {
+                e.preventDefault();
+                showSection('login');
+                setActiveNavLink('login-link');
+            });
+            
+            
+            document.getElementById('loginForm').addEventListener('submit', function(e) {
+                e.preventDefault();
+                handleLogin();
+            });
+            
+            document.getElementById('registerForm').addEventListener('submit', function(e) {
+                e.preventDefault();
+                handleRegistration();
+            });
+            
+            
+            var triggerTabList = [].slice.call(document.querySelectorAll('#genderTab button'));
+            triggerTabList.forEach(function (triggerEl) {
+                var tabTrigger = new bootstrap.Tab(triggerEl);
+                triggerEl.addEventListener('click', function (event) {
+                    event.preventDefault();
+                    tabTrigger.show();
+                });
+            });
+        });
+        
+        function showSection(sectionId) {
+            
+            const sections = document.querySelectorAll('.content-section');
+            sections.forEach(section => {
+                section.style.display = 'none';
+            });
+            
+            
+            document.getElementById(sectionId).style.display = 'block';
+            
+        
+            window.scrollTo(0, 0);
+        }
+        
+        function setActiveNavLink(linkId) {
+        
+            const navLinks = document.querySelectorAll('.nav-link');
+            navLinks.forEach(link => {
+                link.classList.remove('active-page');
+            });
+            
+            
+            document.getElementById(linkId).classList.add('active-page');
+        }
+        
+        function handleLogin() {
+            const email = document.getElementById('loginEmail').value;
+            const password = document.getElementById('loginPassword').value;
+            
+    
+            const user = usersDatabase.find(user => user.email === email && user.password === password);
+            
+            if (user) {
+                alert(`Welcome back, ${user.firstName}! Login successful.`);
+            
+                showSection('home');
+                setActiveNavLink('home-link');
+            } else {
+                alert('Invalid email or password. Please try again.');
+            }
+            
+            
+            document.getElementById('loginForm').reset();
+        }
+        
+        function handleRegistration() {
+            const firstName = document.getElementById('firstName').value;
+            const lastName = document.getElementById('lastName').value;
+            const email = document.getElementById('registerEmail').value;
+            const password = document.getElementById('registerPassword').value;
+            const confirmPassword = document.getElementById('confirmPassword').value;
+            
+            
+            if (password !== confirmPassword) {
+                alert('Passwords do not match. Please try again.');
+                return;
+            }
+            
+            if (password.length < 8) {
+                alert('Password must be at least 8 characters long.');
+                return;
+            }
+            
+            const existingUser = usersDatabase.find(user => user.email === email);
+            if (existingUser) {
+                alert('An account with this email already exists. Please login instead.');
+                return;
+            }
+            
+            const newUser = {
+                firstName,
+                lastName,
+                email,
+                password
+            };
+            
+            usersDatabase.push(newUser);
+            console.log('New user registered:', newUser);
+            
+            alert(`Registration successful! Welcome to LOVETTE YOUNG FASHION-HUB, ${firstName}.`);
+            
+            document.getElementById('registerForm').reset();
+            showSection('login');
+            setActiveNavLink('login-link');
+        }
+    </script>
+</body>
+</html>
